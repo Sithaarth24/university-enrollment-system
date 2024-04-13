@@ -19,9 +19,10 @@ public class Main {
                         System.out.println("Enter password:");
                     }while(!inp.nextLine().equals("sithu123"));
                     System.out.println("HELLO ADMIN!!");
+                    System.out.println("Enter:\n1 - add student\n2 - add course\n3 - add department\n4 - back");
                     while(true){
                         boolean back = false;
-                        System.out.println("Enter:\n1 - add student\n2 - add course\n3 - add department\n4 - back");
+
                         int operation = inp.nextInt();
                         inp.nextLine();
                         switch(operation){
@@ -165,8 +166,8 @@ public class Main {
                     if(StudentResultSet.next()){
                         System.out.println("Hello "+StudentResultSet.getString("name"));
                         boolean back1 = false;
+                        System.out.println("Enter:\n1 - view your details\n2 - view courses\n3 - add course\n4 - view your courses\n5 back\nNote:you can take only upto three courses");
                         while(!back1) {
-                            System.out.println("Enter:\n1 - view your details\n2 - view courses\n3 - add course\n4 - view your courses\n5 back\nNote:you can take only upto three courses");
                             int choice = inp.nextInt();
                             inp.nextLine();
                             switch (choice) {
@@ -213,7 +214,10 @@ public class Main {
                                         PreparedStatement checkCourseLimit = connection.prepareStatement("select * from enrollment where student_id = ?");
                                         checkCourseLimit.setInt(1,StudentResultSet.getInt("student_id"));
                                         ResultSet enrollments = checkCourseLimit.executeQuery();
-                                        int rowCount = enrollments.getRow();
+                                        int rowCount = 0;
+                                        while (enrollments.next()){
+                                            rowCount++;
+                                        }
                                         if(rowCount<3){
                                             preparedStatement = connection.prepareStatement("insert into enrollment(student_id,course_id,course_name) values(?,?,?)");
                                             preparedStatement.setInt(1,StudentResultSet.getInt("student_id"));
