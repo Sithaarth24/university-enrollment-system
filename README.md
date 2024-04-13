@@ -1,4 +1,4 @@
-**University Enrollment System (Java)**
+## University Enrollment System (Java)
 
 This Java project implements a simple enrollment system for a university using MySQL for database management. It allows both administrators and students to perform various operations related to enrollment, such as adding students, courses, departments, and enrolling in courses.
 
