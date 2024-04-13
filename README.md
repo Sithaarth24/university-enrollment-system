@@ -34,5 +34,5 @@ This Java project implements a simple enrollment system for a university using M
 - Ensure to handle exceptions gracefully and close resources properly in a production environment.
 
 ### Contributors
-- [Sithaarth24]
+- [`Sithaarth24`](https://github.com/Sithaarth24)
 
