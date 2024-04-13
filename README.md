@@ -36,5 +36,3 @@ This Java project implements a simple enrollment system for a university using M
 ### Contributors
 - [Sithaarth24]
 
-### License
-This project is licensed under the [MIT License](LICENSE).
